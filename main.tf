@@ -62,6 +62,9 @@ resource "azapi_resource" "this" {
 
   lifecycle {
     ignore_changes = [
+      body.properties.kubernetesVersion,
+      body.properties.agentPoolProfiles,
+
       body.properties.addonProfiles.azurepolicy.config,
       body.properties.azureMonitorProfile,
       body.properties.hostedSystemProfile,
@@ -69,8 +72,10 @@ resource "azapi_resource" "this" {
       body.properties.privateLinkResources,
       body.properties.networkProfile.advancedNetworking,
       body.properties.networkProfile.podLinkLocalAccess,
+      body.properties.networkProfile.nodeProvisioningProfile,
+      body.properties.nodeProvisioningProfile,
       body.properties.securityProfile.defender.securityGating,
-      body.properties.storageProfile.diskCSIDriver.version,
+      body.properties.storageProfile.diskCSIDriver,
       body.properties.workloadAutoScalerProfile,
     ]
   }
