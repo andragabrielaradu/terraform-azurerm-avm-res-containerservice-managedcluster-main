@@ -1,4 +1,4 @@
-## Temporary Patch: sshAccess removed from managedClusters PUT payload...
+## Temporary Patch: sshAccess removed from managedClusters PUT payload.
 
 This fork patches the upstream AVM module `terraform-azurerm-avm-res-containerservice-managedcluster` (v0.5.3) to fix `UnmarshalError: unknown field "sshAccess"` when creating/updating AKS clusters via `azapi_resource`.
 
