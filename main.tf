@@ -7,6 +7,8 @@ resource "azapi_resource" "this" {
   create_headers       = var.enable_telemetry ? { "User-Agent" : local.avm_azapi_header } : null
   delete_headers       = var.enable_telemetry ? { "User-Agent" : local.avm_azapi_header } : null
   ignore_null_property = true
+  ignore_missing_property = true
+  ignore_casing           = true
   read_headers         = var.enable_telemetry ? { "User-Agent" : local.avm_azapi_header } : null
   replace_triggers_refs = [
     "properties.nodeResourceGroup",
