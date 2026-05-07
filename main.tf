@@ -53,10 +53,25 @@ resource "azapi_resource" "this" {
     }
   }
 
+  # lifecycle {
+  #   # TODO: When https://github.com/Azure/terraform-provider-azapi/pull/1033 is merged, we can remove this.
+  #   ignore_changes = [
+  #     body.properties.kubernetesVersion,
+  #   ]
+  # }
+
   lifecycle {
-    # TODO: When https://github.com/Azure/terraform-provider-azapi/pull/1033 is merged, we can remove this.
     ignore_changes = [
-      body.properties.kubernetesVersion,
+      body.properties.addonProfiles.azurepolicy.config,
+      body.properties.azureMonitorProfile,
+      body.properties.hostedSystemProfile,
+      body.properties.identityProfile,
+      body.properties.privateLinkResources,
+      body.properties.networkProfile.advancedNetworking,
+      body.properties.networkProfile.podLinkLocalAccess,
+      body.properties.securityProfile.defender.securityGating,
+      body.properties.storageProfile.diskCSIDriver.version,
+      body.properties.workloadAutoScalerProfile,
     ]
   }
 }
