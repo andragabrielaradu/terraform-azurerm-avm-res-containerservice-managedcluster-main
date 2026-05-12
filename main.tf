@@ -78,16 +78,6 @@ resource "azapi_resource" "this" {
       body.properties.workloadAutoScalerProfile,
       sensitive_body,
       tags,
-      type,
-      ignore_null_property,
-      ignore_missing_property,
-      ignore_casing,
-      response_export_values,
-      replace_triggers_refs,
-      create_headers,
-      read_headers,
-      update_headers,
-      delete_headers,
     ]
   }
 }
