@@ -2,7 +2,7 @@ resource "azapi_resource" "this" {
   location             = var.location
   name                 = var.name
   parent_id            = var.parent_id
-  type                 = "Microsoft.ContainerService/managedClusters@2026-03-01"
+  type                 = "Microsoft.ContainerService/managedClusters@2025-10-01"
   body                 = local.resource_body
   create_headers       = var.enable_telemetry ? { "User-Agent" : local.avm_azapi_header } : null
   delete_headers       = var.enable_telemetry ? { "User-Agent" : local.avm_azapi_header } : null
