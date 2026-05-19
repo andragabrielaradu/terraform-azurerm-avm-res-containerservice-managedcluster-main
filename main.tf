@@ -2,7 +2,7 @@ resource "azapi_resource" "this" {
   location             = var.location
   name                 = var.name
   parent_id            = var.parent_id
-  type                 = "Microsoft.ContainerService/managedClusters@2025-10-01"
+  type                 = "Microsoft.ContainerService/managedClusters@2025-10-02-preview"
   body                 = local.resource_body
   create_headers       = var.enable_telemetry ? { "User-Agent" : local.avm_azapi_header } : null
   delete_headers       = var.enable_telemetry ? { "User-Agent" : local.avm_azapi_header } : null
@@ -63,6 +63,10 @@ resource "azapi_resource" "this" {
   lifecycle {
     ignore_changes = [
       #body.properties.agentPoolProfiles,
+      body.properties.storageProfile,
+      body.properties.azureMonitorProfile,
+      body.properties.networkProfile.advancedNetworking,
+      body.properties.addonProfiles.azurepolicy.config,
 
       body.properties.addonProfiles.azurepolicy.config,
       body.properties.azureMonitorProfile,
