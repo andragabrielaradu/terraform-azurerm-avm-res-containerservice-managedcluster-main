@@ -207,20 +207,21 @@ locals {
         clientId = var.service_principal_profile.client_id
         secret   = var.service_principal_profile.secret
       }
-      storageProfile = var.storage_profile == null ? null : {
-        blobCSIDriver = var.storage_profile.blob_csi_driver == null ? null : {
-          enabled = var.storage_profile.blob_csi_driver.enabled
-        }
-        diskCSIDriver = var.storage_profile.disk_csi_driver == null ? null : {
-          enabled = var.storage_profile.disk_csi_driver.enabled
-        }
-        fileCSIDriver = var.storage_profile.file_csi_driver == null ? null : {
-          enabled = var.storage_profile.file_csi_driver.enabled
-        }
-        snapshotController = var.storage_profile.snapshot_controller == null ? null : {
-          enabled = var.storage_profile.snapshot_controller.enabled
-        }
-      }
+      # storageProfile = var.storage_profile == null ? null : {
+      #   blobCSIDriver = var.storage_profile.blob_csi_driver == null ? null : {
+      #     enabled = var.storage_profile.blob_csi_driver.enabled
+      #   }
+      #   diskCSIDriver = var.storage_profile.disk_csi_driver == null ? null : {
+      #     enabled = var.storage_profile.disk_csi_driver.enabled
+      #   }
+      #   fileCSIDriver = var.storage_profile.file_csi_driver == null ? null : {
+      #     enabled = var.storage_profile.file_csi_driver.enabled
+      #   }
+      #   snapshotController = var.storage_profile.snapshot_controller == null ? null : {
+      #     enabled = var.storage_profile.snapshot_controller.enabled
+      #   }
+      # }
+      storageProfile = null
       supportPlan = var.support_plan
       upgradeSettings = var.upgrade_settings == null ? null : {
         overrideSettings = var.upgrade_settings.override_settings == null ? null : {
