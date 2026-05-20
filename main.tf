@@ -62,7 +62,7 @@ resource "azapi_resource" "this" {
 
   lifecycle {
     ignore_changes = [
-      body.properties.agentPoolProfiles,
+      #body.properties.agentPoolProfiles,
       body.properties.storageProfile,
       body.properties.azureMonitorProfile,
       body.properties.networkProfile.advancedNetworking,
